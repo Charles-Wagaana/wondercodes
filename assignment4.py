@@ -26,19 +26,24 @@ print(f"Minimum number is {min(_array)}\nMaximum number is {max(_array)}")
 
 # 4
 
-n_subjects = 5
-total = 0
+marks = []
+total_marks = 0
+percentage_mark = None
+while len(marks) < 5:
+    mark = int(input("Enter mark: "))
+    marks.append(mark)
+    total_marks += mark
+    percentage_mark = (total_marks/(len(marks)*100))*100
 
-for m in range(1, n_subjects):
-    marks_ = int(input("Enter marks: "))
-    total += marks_   
-    
-    if (marks_//total)*100 < 50:
-        print("Grade C")
-    elif 50 < ((marks_//total)*100) < 80:
-        print("Grade B")
-    else:
-        print("Grade A")
+if percentage_mark < 50:
+    print('Grade C')
+elif 50 <= percentage_mark < 80:
+    print('Grade B')
+else:
+    print('Grade A')
+print(marks)
+print(total_marks)
+print("Percentage: {}%".format(int(percentage_mark)))
 
 # 5
 
@@ -55,16 +60,23 @@ with open('file1.txt', 'r') as f:
 
 # 6
 
-# def speed_check(speed):
-#     limit = 70
-#     point = None
-#     if speed < limit:
-#         print("Ok")
-#     else:
-#         if (speed - limit) == 5:
-#             point = 
+def speed_check(speed):
+    speed_limit = 70
+    delimit_points = None
+    if speed <= speed_limit:
+        print("Ok")
+    else:
+        delimit_points = (speed - speed_limit)//5
+        print("Points: {}".format(delimit_points))
 
+        if delimit_points > 12:
+            print("Licence suspended")
 
+def main():
+    speed_check(speed=160)
+
+if __name__ == "__main__":
+    main()
 
 # 7
 
